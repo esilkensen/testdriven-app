@@ -4,6 +4,7 @@ from sqlalchemy import exc
 from project.api.models import User
 from project import db
 
+
 users_blueprint = Blueprint('users', __name__, template_folder='./templates')
 
 

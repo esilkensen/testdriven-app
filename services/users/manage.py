@@ -5,6 +5,7 @@ from flask.cli import FlaskGroup
 from project import create_app, db
 from project.api.models import User
 
+
 COV = coverage.coverage(
     branch=True,
     include='project/*',
@@ -27,8 +28,16 @@ def recreate_db():
 @cli.command()
 def seed_db():
     """Seeds the database."""
-    db.session.add(User(username='michael', email='hermanmu@gmail.com'))
-    db.session.add(User(username='michaelherman', email='michael@mherman.org'))
+    db.session.add(User(
+        username='michael',
+        email='hermanmu@gmail.com',
+        password='greaterthaneight'
+    ))
+    db.session.add(User(
+        username='michaelherman',
+        email='michael@mherman.org',
+        password='greaterthaneight'
+    ))
     db.session.commit()
 
 @cli.command()
